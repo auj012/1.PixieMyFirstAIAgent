@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Initialize Project Pixie Structure",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-Command",
+                "New-Item -ItemType Directory -Force -Path 'ProjectPixie/01_ideation', 'ProjectPixie/02_product_spec', 'ProjectPixie/03_architecture', 'ProjectPixie/04_project_mgmt', 'ProjectPixie/05_qa_evals', 'ProjectPixie/src/core', 'ProjectPixie/src/utils', 'ProjectPixie/tests'; New-Item -ItemType File -Force -Path 'ProjectPixie/.gitignore', 'ProjectPixie/requirements.txt'; Out-File -FilePath 'ProjectPixie/.gitignore' -InputObject '# Python virtual environments`n.venv/`n__pycache__/`n*.pyc`n`n# IDE Configurations`n.vscode/`n.idea/`n`n# Environment configurations`n.env' -Encoding utf8; Out-File -FilePath 'ProjectPixie/requirements.txt' -InputObject 'ollama>=0.2.1`npydantic>=2.7.0`npytest>=8.0.0`npython-dotenv>=1.0.1' -Encoding utf8; Write-Host '🧚‍♀️ Project Pixie Structure successfully created via VS Code Tasks!' -ForegroundColor Green"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
