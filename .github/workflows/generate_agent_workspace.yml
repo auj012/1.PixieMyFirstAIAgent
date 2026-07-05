@@ -1,0 +1,58 @@
+name: 🚀 Auto-Generate Agent Workspace
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: 📁 Generate Deep Lifecycle AI Agent Matrix
+        run: |
+          python -c "
+          import os
+          import shutil
+          import subprocess
+          
+          # The Comprehensive Portfolio Matrix tailored for your Project Pixie tracks
+          matrix_blueprint = [
+              # Track 1: Project Pixie (The Name Intelligence Agent)
+              'ProjectPixie/01_ideation/vision.md',
+              'ProjectPixie/02_product_spec/prd.md',
+              'ProjectPixie/03_architecture/system_design.md',
+              'ProjectPixie/04_project_mgmt/tasks.md',
+              'ProjectPixie/05_qa_evals/test_scenarios.md',
+              'ProjectPixie/src/core/gatekeeper.py',
+              'ProjectPixie/src/utils/helpers.py',
+              'ProjectPixie/tests/test_validation.py',
+              'ProjectPixie/requirements.txt',
+              'ProjectPixie/.gitignore'
+          ]
+
+          # Rebuild using the explicit layout structure
+          for filepath in matrix_blueprint:
+              dirname = os.path.dirname(filepath)
+              if dirname:
+                  os.makedirs(dirname, exist_ok=True)
+              with open(filepath, 'w', encoding='utf-8') as f:
+                  if filepath.endswith('.md'):
+                      f.write(f'# {os.path.basename(filepath).replace(\"_\", \" \").replace(\".md\", \"\").title()}\n\nProject Pixie portfolio milestone asset.\n')
+                  elif filepath.endswith('.txt'):
+                      f.write('ollama>=0.2.1\npydantic>=2.7.0\npytest>=8.0.0\npython-dotenv>=1.0.1\n')
+                  elif filepath.endswith('.gitignore'):
+                      f.write('.venv/\n__pycache__/\n*.pyc\n.env\n.vscode/\n')
+                  else:
+                      f.write(f'#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\n\"\"\"\nProject Pixie Agent Core Script: {filepath}\n\"\"\"\n')
+              print(f'Generated layout component: {filepath}')
+
+          # Push cleanly back to main branch
+          subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'])
+          subprocess.run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
+          subprocess.run(['git', 'add', '.'])
+          subprocess.run(['git', 'commit', '-am', '🚀 initialized Project Pixie lifecycle structure', '--allow-empty'])
+          subprocess.run(['git', 'push'])
+          print('✅ Project Pixie Workspace Deployed Successfully!')
+          "
