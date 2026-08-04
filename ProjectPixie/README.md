@@ -1,6 +1,6 @@
 ## 📁 Executive Summary: Project Pixie
 
-![Project Pixie Presentation Board](01_ideation/ProjectPixie_Chibi.png)
+![Project Pixie Presentation Board](ProjectPixie_Chibi.png)
 
 
 ### 1. The Core Thesis
