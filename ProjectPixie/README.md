@@ -1,5 +1,8 @@
 ## 📁 Executive Summary: Project Pixie
 
+![Project Pixie Presentation Board](01_ideation/ProjectPixie_Chibi.png)
+
+
 ### 1. The Core Thesis
 * **The Problem:** Fragmented workflows—users waste time running manual, repetitive search engine queries and cloud LLM prompts to analyze linguistic and cultural metadata[cite: 1].
 * **The Solution:** A tightly scoped, local AI agent utility that distills a single name string into a highly accurate, structured analytics payload instantly[cite: 1].
